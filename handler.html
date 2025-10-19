@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <title>Document</title>
+     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+     <div id="root"></div>
+
+
+     <script type="text/babel">
+          const container = document.getElementById('root');
+          const root = ReactDOM.createRoot(container);
+
+
+
+          function ButtonHendler(){
+               const [angka, setAngka] = React.useState(0);
+
+               // function hendleClickPlus(){
+               //      setAngka(angka + 1);
+               // }
+
+               // function hendleClickMinus(){
+
+               //      if(angka === 0){
+               //           return alert('Angka tidak bisa kurang');
+               //      }
+               //      setAngka(angka - 1);
+               // }
+
+
+
+               return(
+                    <> 
+                    <button onClick={() => setAngka(angka + 1)}>+</button>
+
+                    <span>{angka}</span>
+
+                    <button onClick={() => angka === 0 ? alert('Angka tidak bisa kurang') : setAngka(angka - 1) }>-</button>
+
+                    <button onClick={() => setAngka(0)}>reset</button>
+
+
+                    </>
+                   
+               );
+          }
+
+          function MainPage(){
+               return(
+                    <div>
+                         <ButtonHendler/>
+                    </div>
+               );
+          }
+
+
+
+
+          root.render(<MainPage/>)
+
+     </script>
+     
+</body>
+</html>
